@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: rgba(38, 131, 168, 0.726);
+
+  /* background-image: url('./photo/123.jpeg'); */
+}
+
+header {
+  background: #c05e5e;
+  padding: 1rem;
+  text-align: center;
+}
+
+.container {
+  padding: 3rem 2rem;
+  margin: auto;
+}
+
+#my-form {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  background: #c05e5e;
+  border: 2px solid rgba(9, 82, 21, 0.726);
+  border-radius: 20px;
+}
+
+#lists{
+  margin: 5px auto;
+  max-width: 400px;
+  font-weight: 700;
+}
+
+.litag{
+  width: 95%;
+  background-color: #c05e5e;
+  border: 2px solid rgba(9, 82, 21, 0.726);
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 5px 10px;
+}
+
+.litag:hover{
+  transform: scale(1.01);
+}
+
+#my-form label {
+  display: block;
+  font-weight: 700;
+}
+
+#my-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#categary {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#my-form button{
+  /* display: block; */
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+#rzr-pay,
+#leaderboard {
+  display: none;
+  position: absolute;
+  left: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+  margin: 10px 2px;
+}
+
+#userName  {
+  position: absolute;
+  right: 10px;
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#forPremium{
+  padding: 0px 0px 50px 0px;
+}
+
+#my-form button:hover,
+#rzr-pay:hover,
+#leaderboard:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+/* 
+#leaderboard {
+  padding: 10px 15px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  margin: 10px auto;
+} */
+
+/* 
+#div {
+  margin: auto;
+  display: flex;
+}
+
+.data {
+  margin: auto;
+}  */
+
+
+.msg {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.delete{
+  float: right;
+  font-weight: 800;
+  color: white;
+  background-color: #333;
+  padding: 4px;
+  margin: 0px 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.delete:hover{
+  cursor: pointer;
+  background-color:blanchedalmond;
+  color: red;
+}
+
+.error {
+  color: red;
+  background-color: white;
+  text-align: center;
+}
+
+
+
+#downloadexpense,
+#showDownloadedFile{
+  display: none;
+  float: right;
+  padding: 10px 15px;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  margin: 10px 3px;
+}
+
+.logout{
+  float: left;
+  padding: 10px 15px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px 3px;
+}
+
+#showDownloadedFile:hover,
+#downloadexpense:hover ,
+.pegination:hover,
+.logout:hover{
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+
+#pagination{
+  text-align: center;
+}
+
+
+.pegination {
+  background: #333;
+  color: #fff;
+  border-radius: 2px;
+  margin: 2px;
+  padding: 5px;
+}
+
+.pegination h3{
+  padding : 10px 2px;
+}
+
+#perPage{
+  position: absolute;
+  right: 5px;
+}
+
+#setRows{
+  background: #333;
+  color: #fff;
+  padding: 0px 5px;
+}
+#setRows:hover{
+  cursor: pointer;
+}
