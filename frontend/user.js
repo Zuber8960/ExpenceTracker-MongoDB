@@ -1,6 +1,6 @@
 let form = document.getElementById('my-form');
 let massage = document.querySelector('.msg');
-const backendApis = `http://localhost:3000/user`;
+const backendApis = `http://54.214.138.157:3000/user`;
 
 form.addEventListener('click', (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ form.addEventListener('click', (e) => {
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
         let obj = { email, password };
-        // console.log(obj);
+        console.log(obj);
         login();
         async function login() {
             try {
@@ -61,6 +61,12 @@ form.addEventListener('click', (e) => {
                 }
             } catch (err) {
                 console.log(err);
+                if(err.response.status == 400 || err.response.status == 404){
+                    alert(err.response.data.message);
+                    document.getElementById('email').value = null;
+                    document.getElementById('password').value = null;
+                    return;
+                }
                 document.body.innerHTML += `<div style="color:red; background-color:white; text-align:center;">${err.response.data.message}</div>`;
             }
         }

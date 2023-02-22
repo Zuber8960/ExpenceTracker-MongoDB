@@ -1,6 +1,6 @@
 let form = document.getElementById('my-form');
 const list = document.getElementById('lists');
-const backendApis = `http://localhost:3000`;
+const backendApis = `http://54.214.138.157:3000`;
 const massage = document.querySelector('.msg');
 const token = localStorage.getItem("token");
 const rzrPay = document.querySelector('#rzr-pay');
@@ -18,7 +18,7 @@ const numberOfRows = localStorage.getItem('numberOfRows');
 
 //when window refresh
 window.addEventListener('DOMContentLoaded', async () => {
-    console.log(`abc`);
+    // console.log(`abc`);
     try {
         const page = 1;
         const result = await axios.get(`${backendApis}/expence/get-expence?page=${page}&numberOfRows=${numberOfRows}` , {headers: { "Authorization": token} } );
@@ -199,10 +199,10 @@ leaderBoard.addEventListener('click', () => {
 async function showList() {
     try {
         const result = await axios.get(`${backendApis}/premium/show-leaderBoard`);
-        console.log(result);
+        // console.log(result);
         const ulTag = document.getElementById('ulList');
         result.data.data.forEach(data => {
-            console.log(data);
+            // console.log(data);
             const li = document.createElement('li');
             li.className = "litag"
             li.innerHTML = `<b>Name : ${data.name} , Total-Expence : ${data.total_amount}</b>`;
@@ -228,12 +228,12 @@ async function downloadExpence() {
     try {
         const response = await axios.get(`${backendApis}/premium/download` , { headers: { "Authorization": token } });
         if (response.status === 200) {
-            console.log(response);
+            // console.log(response);
             let a = document.createElement("a");
             a.href = response.data.fileURL;
             a.download = 'myexpence.csv';
             a.click();
-            console.log(`file downloaded`);
+            // console.log(`file downloaded`);
         } else {
             throw new Error(response.data.message);
         }
@@ -260,10 +260,11 @@ async function previousfileDownloaded() {
                     return;
                 }
                 responce.data.allFiles.forEach(file => {
+                    // console.log(file);
                     const li = document.createElement('li');
                     li.className = 'litag';
-                    // const date = file.createdAt.split('T')[0].split('-').reverse().join('-');
-                    li.innerHTML = `<b> <a href="${file.fileURL}">Details</a></b>`;
+                    const date = file.date.split('T')[0].split('-').reverse().join('-');
+                    li.innerHTML = `<b>${date} - <a href="${file.fileURL}">Details</a></b>`;
                     ul.appendChild(li);
                 })
             } else {

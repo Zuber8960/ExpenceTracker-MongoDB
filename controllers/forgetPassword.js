@@ -17,7 +17,7 @@ exports.forgetpassword = async (req, res, next) => {
         }
         
         const id = uuid.v4();
-        const data = await new Forgotpassword({
+        const data = new Forgotpassword({
             isActive: true,
             email: email,
             id:id
@@ -33,7 +33,7 @@ exports.forgetpassword = async (req, res, next) => {
         console.log(process.env.API_KEY);
     
         const zuberEmailApi = new Sib.TransactionalEmailsApi();
-        const sender = { email : 'zuberahmad8960@gmail.com'};
+        const sender = { email : process.env.email};
         
         const receivers = [ {
             email : email,
@@ -46,7 +46,7 @@ exports.forgetpassword = async (req, res, next) => {
             subject: "Change Password",
             textContent: "Send a reset password mail",
             htmlContent: `
-            <a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>
+            <a href="http://54.214.138.157:3000/password/resetpassword/${id}">Reset password</a>
             `,
         })
     
@@ -72,7 +72,7 @@ exports.resetpassword = (req, res) => {
             forgotpasswordrequest.isActive = false;
             return forgotpasswordrequest.save()
             .then((result) => {
-                console.log(result);
+                // console.log(result);
                 return res.status(200).send(`<html>
                                 <form action="/password/updatepassword/${id}" method="get">
                                     <label for="newpassword">Enter New password</label>
@@ -124,7 +124,7 @@ exports.updatepassword = async (req, res, next) => {
                     user.update({password : hash})
                     .then(() => {
                         console.log('okkkkkkk ==> password reset done !');
-                        return res.redirect('http://localhost:3000/login.html');
+                        return res.redirect('http://54.214.138.157:3000/login.html');
                         // return res.status(201).json({success : true, message: 'Successfully updated new password'});
                     })
                 })

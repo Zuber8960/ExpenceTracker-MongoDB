@@ -49,33 +49,33 @@ exports.login = async (req, res, next) => {
         if (email == "" || password == "") {
             return res.status(204).json({ success: false, message: `Please fill all feilds !` });
         }
-        // console.log(email, password);
+        console.log(email, password,"<==============================");
 
-        const user = await User.find({ email: email })
+        const user = await User.findOne({ email: email })
 
         console.log(user);
-        if (user.length == 0) {
+        if (!user) {
             return res.status(404).json({ success: false, message: `Error(404) : User ${email} does not exist` });
         } else {
-            bcrypt.compare(password, user[0].password, (err, response) => {
+            bcrypt.compare(password, user.password, (err, response) => {
                 if (err) {
                     console.log(err);
                 }
                 if (response) {
                     // console.log(`responce ===>` ,response);
-                    console.log(`user ==>`, user[0].id,user[0].name);
+                    console.log(`user ==>`, user.id,user.name);
                     console.log(`secretkey ==>`, process.env.secretKey);
-                    let token = generateAccessToken(user[0].id);
+                    let token = generateAccessToken(user.id);
                     
                     console.log(`token===>` , token);
-                    return res.status(201).json({ success: true, message: `User : ${user[0].name} logged in successfully.`, token: token });
+                    return res.status(201).json({ success: true, message: `User : ${user.name} logged in successfully.`, token: token });
                 } else {
-                    return res.status(401).json({ success: false, message: `Error(401) : Entered wrong password !` });
+                    return res.status(400).json({ success: false, message: `Error(401) : Entered wrong password !` });
                 }
             })
         }
     } catch (err) {
         console.log(err);
-        res.status(400).json({ error: err });
+        res.status(400).json({ error: err , message : `Something went wrong !`});
     }
 }
