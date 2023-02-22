@@ -226,7 +226,7 @@ function showUserName(name) {
 //when clicking to download report.
 async function downloadExpence() {
     try {
-        const response = await axios.get(`${backendApis}/user/download` , { headers: { "Authorization": token } });
+        const response = await axios.get(`${backendApis}/premium/download` , { headers: { "Authorization": token } });
         if (response.status === 200) {
             console.log(response);
             let a = document.createElement("a");
@@ -249,7 +249,7 @@ async function previousfileDownloaded() {
     if (downloadFilesButton.innerText != "Hide Files") {
         downloadFilesButton.innerText = "Hide Files";
         try {
-            const responce = await axios.get(`${backendApis}/user/oldFiles`, { headers: { 'Authorization': token } });
+            const responce = await axios.get(`${backendApis}/premium/oldFiles`, { headers: { 'Authorization': token } });
             // console.log(responce.data)
             if (responce.status == 200) {
                 const ul = document.createElement('ul');

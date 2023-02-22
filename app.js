@@ -11,7 +11,7 @@ dotenv.config();
 
 const mongoose = require('mongoose');
 
-app.use(bodyParser.json({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(cors());
 
