@@ -1,6 +1,6 @@
 let form = document.getElementById('my-form');
 const list = document.getElementById('lists');
-const backendApis = `http://54.214.138.157:3000`;
+const backendApis = `http://localhost:3000`;
 const massage = document.querySelector('.msg');
 const token = localStorage.getItem("token");
 const rzrPay = document.querySelector('#rzr-pay');

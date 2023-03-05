@@ -46,7 +46,7 @@ exports.forgetpassword = async (req, res, next) => {
             subject: "Change Password",
             textContent: "Send a reset password mail",
             htmlContent: `
-            <a href="http://54.214.138.157:3000/password/resetpassword/${id}">Reset password</a>
+            <a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>
             `,
         })
     
@@ -124,7 +124,7 @@ exports.updatepassword = async (req, res, next) => {
                     user.update({password : hash})
                     .then(() => {
                         console.log('okkkkkkk ==> password reset done !');
-                        return res.redirect('http://54.214.138.157:3000/login.html');
+                        return res.redirect('http://localhost:3000/login.html');
                         // return res.status(201).json({success : true, message: 'Successfully updated new password'});
                     })
                 })

@@ -70,7 +70,7 @@ updloadToS3 = (data, filename) => {
                 console.log(`Something went wrong`, err);
                 reject(err);
             } else {
-                // console.log(`work has done ===>`, s3responce);
+                console.log(`work has done ===>`, s3responce);
                 resolve(s3responce.Location);
             }
         })

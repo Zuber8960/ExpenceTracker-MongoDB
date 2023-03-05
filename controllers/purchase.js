@@ -9,10 +9,10 @@ exports.premiumMembership = async (req, res, next) => {
         // console.log('=============================================================')
         // console.log('line num = 8 in puchase')
         let rzp = new Razorpay({
-            key_id: 'rzp_test_OM3ahlSONqC8d1',
-            key_secret: 'LS8ZSkR2WAJDNAmG6hyAg2yo'
+            key_id: process.env.key_id,
+            key_secret: process.env.key_secret
         })
-        const amount = 2500;
+        const amount = 10000;
 
         rzp.orders.create({ amount, currency: "INR" }, async (err, order) => {
             try {
